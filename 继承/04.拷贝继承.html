@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <script src="./Person.js"></script>
+  <script>
+
+    /*
+      四、拷贝继承（forin继承）
+        - 拷贝继承，就是利用 for in 循环来拷贝一份父类的实例而已
+
+        问题：
+          forin 循环因为会遍历 __proto__
+          对性能的消耗比较大
+    */
+
+
+
+    /* 
+      p 
+      {
+        name：'佐佐木'，
+        eat：...，
+        __proto__:{
+          sayHi:....
+          constructor:Preson
+          __proto__:Obj
+        }
+      }
+    new Studet 
+    {
+      __proto__:{
+        name：'佐佐木'，
+        eat：...，
+        sayHi:....
+        constructor:Student
+        __proto__:Obj
+      }
+    }
+
+      不会丢失自己的原型
+      原型中的东西就是父类的属性和方法
+
+
+      缺点 ：
+
+
+    */
+    function Student(name) {
+      var p = new Person
+      for (var key in p) {
+        Student.prototype[key] = p[key]
+      }
+    }
+    Student.prototype.look = function (){
+
+    };
+    var s = new Student
+    s.name = 's';
+  
+  </script>
+</body>
+</html>

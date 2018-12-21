@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script src="./Person.js"></script>
+  <script>
+    /*
+        六、寄生式组合继承1
+        就是把 寄生式组合的一部分 和 构造继承 组合在了一起
+        
+        问题：
+        constructor 的指向
+        当我操作自己的原型的时候，实际上操作的式 Person的原型
+    */
+
+    function Student(name) {
+      Person.call(this)
+    }
+    Student.prototype = Person.prototype
+    Student.prototype.fn = function () {
+
+    }
+    var s = new Student
+  </script>
+</body>
+
+</html>

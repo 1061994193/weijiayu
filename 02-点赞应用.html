@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>你可以的,加油干吧!</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul {
+      width: 100px;
+      list-style-type: none;
+      margin: 100px auto;
+    }
+
+    li {
+      float: left;
+      margin-left: 10px;
+    }
+
+    img {
+      width: 200px;
+      height: 180px;
+    }
+
+    input {
+      margin-left: 30%;
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li>
+      <input type="button" value="赞(1)">
+    </li>
+    <li>
+      <input type="button" value="赞(1)">
+    </li>
+  </ul>
+  <script>
+    /* 
+      点击按钮实现按钮内的数值自增
+      不允许使用 变量++的方式；
+      使用闭包来实现
+     */
+    /* 
+      inps[i].onclick = function func() {
+          num++;
+          this.value = '赞(8)';
+        };
+
+
+      function fn() {
+        var num = 0;
+        return function func() {
+          num++;
+          this.value = '赞(8)';
+        };
+      };
+    
+    
+    
+     */
+
+    var inps = getEls('input');
+    // console.log(inps);
+
+    for (var i = 0; i < inps.length; i++) {
+      // 这种绑定事件，不能加() 错的？
+      inps[i].onclick = fn();
+    };
+    // 闭包的函数
+    function fn() {
+      var num = 1;
+      return function func() {
+        this.value = '赞(' + (++num) + ')';
+      };
+    };
+
+
+    // 封装获取元素方法
+    function getEls(el) {
+      return document.querySelectorAll(el);
+    };
+
+
+  </script>
+
+
+</body>
+
+</html>

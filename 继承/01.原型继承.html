@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>原型继承(原型链继承)</title>
+</head>
+
+<body>
+  <script src="./Person.js"></script>
+  <script>
+    /*
+      一、 原型继承（原型链继承）
+        - 每一个对象都会有一个属性叫做 __proto__
+        - 由 __proto__ 串联起来的对象集合就叫做原型链
+        - 当我想使用 父类 的属性的时候，是通过 __proto__ 找到的
+        - 这种形式我们就叫做 原型链继承
+
+      Student.prototype = {
+        name: '佐佐木',
+        eat: function () {},
+        __proto__: {
+          constrcuor: Person,
+          sayHi: function () {},
+          __proto__: Object
+        }
+      }
+
+      当我去 new Student 的时候 得到什么
+      {
+        __proto__: {
+          name: 'person',
+          eat: function () {},
+          __proto__: {
+            constrcuor: Person,
+            sayHi: function () {},
+            __proto__: Object
+          }
+        }
+      };
+
+      - 子类的 prototype 指向父类的实例
+
+      缺点： 
+
+        没有自己的 prototype 给自己的 prototype 添加方法，就是给父类添加
+    */
+
+
+    // 原型继承 构造函数 A（Student）的原型指向构造函数B（Person）的 实例对象
+
+    function Student(name) { 
+
+    };
+
+    var p =  new Person;
+
+    Student.prototype = p;
+
+    var s = new Student;
+
+  
+    Student.prototype.look  = function(){
+
+    };
+
+  </script>
+</body>
+
+</html>

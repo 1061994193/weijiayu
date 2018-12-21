@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script src="./Person.js"></script>
+  <script>
+
+    /* 
+      - 借用了 call 方法来改变 父类 函数执行的时候的 this 指向
+
+          - 构造函数和普通函数有什么区别
+          - 就是看看有没有和 new 连用
+            + 没有连用，那么函数里面的 this 该指向谁就是谁
+            + 连用的时候，那么函数里面的 this 才指向实例
+    
+
+      new Student 
+
+      {
+        name:佐佐木
+        eat:....
+        __proto__ :{
+          constructor:构造函数（Student）
+          __proto__:Object
+        }
+      }
+      好处： 拥有自己的原型
+      
+      缺点： 没有拿到父类的原型中的属性和方法
+
+    */
+
+
+
+    
+      function Student(){
+        Person.call(this);
+      };
+      Student.prototype.look = function(){
+
+      };
+      var s = new Student;
+      
+  </script>
+</body>
+
+</html>

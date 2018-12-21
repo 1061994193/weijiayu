@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            width: 100px;
+            list-style-type: none;
+            margin: 100px auto;
+        }
+
+        li {
+            float: left;
+            margin-left: 10px;
+        }
+
+        img {
+            width: 200px;
+            height: 180px;
+        }
+
+        input {
+            margin-left: 30%;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <input type="button" value="赞(1)">
+        </li>
+        <li>
+            <input type="button" value="赞(1)">
+        </li>
+    </ul>
+
+    <script>
+        // var inps = document.querySelectorAll('input');
+        
+        // for (var i = 0; i < inps.length; i++) {
+        //     inps[i].onclick = fn();
+        // }
+
+        // function fn () {
+        //     var num = 1;
+        //     return function fn1 () {
+        //         this.value = '赞(' + (++num) + ')';
+        //     }
+        // }
+
+
+        var inps = get('input');
+        
+        for (var i = 0; i < inps.length; i++) {
+            inps[i].onclick = fn();
+        }
+
+        function fn () {
+            var num = 1;
+            return function fn1 () {
+                this.value = '赞(' + (++num) + ')';
+            }
+        }
+
+
+        function get(l) {
+            return document.querySelectorAll(l);
+        }
+    </script>
+</body>
+
+</html>

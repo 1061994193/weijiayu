@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script src="./Person.js"></script>
+  <script>
+    /*
+      七、寄生式组合继承2
+        - 在 寄生式组合继承1 的基础上添加一个  中间件 （新的构造函数）
+        
+      问题：
+        多出了一个 __proto__
+        如果我不操作 Student.prototype的情况下去访问的属性在 Person.prototype 上
+        对于原型链的查找机制来说多找一层，多消耗一定的性能
+
+    */
+
+
+    function Student(name) {
+      Person.call(this)
+    }
+
+    function Abc() {
+    }
+    Abc.prototype = Person.prototype
+
+    Student.prototype = new Abc
+
+    Student.prototype.constructor = Student
+
+    var s = new Student
+    console.log(s)
+  </script>
+</body>
+
+</html>

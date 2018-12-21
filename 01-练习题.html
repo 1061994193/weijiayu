@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>练习题</title>
+</head>
+
+<body>
+  <script>
+    // 请看题：
+    /* 
+        预解析的时候 函数 和 var声明会被提升
+
+        当遇到同名的函数或变量 会发生覆盖的现象
+       
+        function fn() {
+          console.log(1);
+        };
+        function fn() {
+          console.log(2);
+        }
+        var fn;
+        fn();//2
+        fn();//2
+        fn = 10;
+        fn();//报错
+        fn(); 
+
+
+    */
+    fn();
+    function fn() {
+      console.log(1);
+    };
+    fn();
+    var fn = 10;
+    fn();
+    function fn() {
+      console.log(2);
+    }
+    fn();
+
+  </script>
+</body>
+
+</html>

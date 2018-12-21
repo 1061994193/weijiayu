@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script src="./Person.js"></script>
+  <script>
+    /*
+      八、黑马式继承
+        - 改变了 寄生式继承多出来的那一个 __proto__
+        
+        缺陷：
+          for in 循环
+    */
+
+    function Student(name) {
+      Person.call(this)
+    };
+
+    /*
+      自执行函数
+      ~function () {}
+      (function () {})()
+      !function () {}
+    */
+    ~function () {
+      /*
+        Student.prototype = {
+          constructor: Student,  || Person
+          sayHi: function () {},
+          __proto__: Object
+        }
+
+      */
+      var p = Person.prototype
+      for (var key in p) {
+        Student.prototype[key] = p[key]
+      }
+    }()
+
+    Student.prototype.fn = function () {
+
+    }
+
+    var s = new Student
+    console.log(s)
+
+  </script>
+</body>
+
+</html>

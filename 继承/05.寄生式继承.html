@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script src="./Person.js"></script>
+  <script>
+    /* 
+        缺点:
+
+        就是没有自己的东西，所有的东西都从父类里面
+
+        自己也没有自己的特色（私有属性，自己的原型）
+    */
+    /* 
+      当我 new Student 的时候
+      其实就是拿到父类的一个实例对象
+      那我 new Student 实际上就是 new Person;
+    */
+
+    function Student(name) {
+      this.name = name;
+      var p = new Person;
+      return p;
+    };
+
+
+    var s = new Student;
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script src="./Person.js"></script>
+  <script>
+    /* 
+      组合继承 原型继承 + 借用继承
+      new Student
+      {
+        name:'佐佐木'
+        eat: ...
+        __proto__ :{
+          sayHi : ...
+          constructor
+          __proto__:Object
+        }
+      }
+
+    缺点：
+        没有自己的原型
+    */
+    function Student() {
+      // 借用了 => Person自身的属性和方法
+      Person.call(this);
+    };
+
+    Student.prototype = Person.prototype;
+
+    var s = new Student;  
+
+    
+  </script>
+</body>
+
+</html>
